@@ -1,0 +1,37 @@
+name: push
+
+on:
+  push:
+    # branches:
+    #   - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_LOGIN }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN_DEVOPS_PROJECT_74 }}
+
+      #   - name: Build App
+      #     uses: docker/build-push-action@v6
+      #     with:
+      #       context: .
+      #       file: Dockerfile.production
+      #       cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
+      #       cache-to: type=inline
+      #       push: true
+      #       tags: ${{ env.APP_IMAGE_NAME }}
+
+      - name: Check
+        run: |
+          make ansible-generate-env
+          docker compose --file docker-compose.yml up --abort-on-container-exit
