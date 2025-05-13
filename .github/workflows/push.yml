@@ -2,8 +2,6 @@ name: push
 
 on:
   push:
-    # branches:
-    #   - main
 
 jobs:
   build:
@@ -26,8 +24,6 @@ jobs:
         with:
           context: .
           file: dockerfile.production
-          #       cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
-          #       cache-to: type=inline
           push: true
           tags: felarn/devops-for-programmers-project-74-app:latest
 
