@@ -1,7 +1,7 @@
 services:
   app:
+    image: felarn/devops-for-programmers-project-74-app
     build:
       context: .
-    volumes:
-      - ./app/:/app/
+      dockerfile: dockerfile.production
     command: make test
