@@ -21,17 +21,16 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_LOGIN }}
           password: ${{ secrets.DOCKER_HUB_TOKEN_DEVOPS_PROJECT_74 }}
 
-      #   - name: Build App
-      #     uses: docker/build-push-action@v6
-      #     with:
-      #       context: .
-      #       file: Dockerfile.production
-      #       cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
-      #       cache-to: type=inline
-      #       push: true
-      #       tags: ${{ env.APP_IMAGE_NAME }}
+      - name: Build App
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: dockerfile.production
+          #       cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
+          #       cache-to: type=inline
+          push: true
+          tags: felarn/devops-for-programmers-project-74-app:latest
 
       - name: Check
         run: |
-          make ansible-generate-env
-          docker compose --file docker-compose.yml up --abort-on-container-exit
+          make ci
