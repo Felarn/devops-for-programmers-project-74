@@ -27,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: dockerfile.production
+          file: Dockerfile.production
           push: true
           tags: felarn/devops-for-programmers-project-74-app:latest
