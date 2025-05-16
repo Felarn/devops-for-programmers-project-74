@@ -1,6 +1,6 @@
 services:
   app:
-    image: felarn/devops-for-programmers-project-74-app
+    image: felarn/devops-for-programmers-project-74
     build:
       context: .
       dockerfile: dockerfile.production
@@ -10,6 +10,8 @@ services:
 
   db:
     image: postgres:latest
+    # ports:
+    #   - 0.0.0.0:5432:5432
     environment:
       POSTGRES_PASSWORD: password
     healthcheck:
