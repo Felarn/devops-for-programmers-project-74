@@ -1,9 +1,5 @@
 services:
   app:
-    extends:
-      file: docker-compose.yml
-      service: app
-
     build:
       dockerfile: dockerfile
     ports:
