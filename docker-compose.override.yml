@@ -5,10 +5,11 @@ services:
       dockerfile: dockerfile
     ports:
       - 8080:8080
-    working_dir: /app
     command: make dev
-    volumes:
-      - ./app/:/app/
+    environment:
+      - NODE_ENV=development
+    # volumes:
+    #   - ./app/:/app/
 
   caddy:
     image: caddy:2.10.0
@@ -19,7 +20,6 @@ services:
     ports:
       - 80:80
       - 443:443
-      - '443:443/udp'
     volumes:
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
