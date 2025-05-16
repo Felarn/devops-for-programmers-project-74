@@ -3,7 +3,7 @@ services:
     image: felarn/devops-for-programmers-project-74
     build:
       context: .
-      dockerfile: dockerfile.production
+      dockerfile: Dockerfile.production
     command: make test
     depends_on:
       db:
