@@ -9,7 +9,7 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - ./app/:/app/
+      - ./app:/app
 
   caddy:
     image: caddy:2.10.0
