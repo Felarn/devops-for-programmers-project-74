@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080
-    user: '${UserID}:${GroupID}'
+    user: '${USER_ID}:${GROUP_ID}'
     command: make dev
     volumes:
       - ./app:/app

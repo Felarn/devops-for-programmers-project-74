@@ -1,10 +1,14 @@
+USER_ID = $(shell id -u)
+GROUP_ID = $(shell id -g)
+
+aaaa:
+	echo $(shell id -g)
+
 install:
-	docker run -it -w /root -v `pwd`/app:/root -u $(id -u):$(id -g) node:20.12.2 make setup
+	docker run -it -w /root -v `pwd`/app:/root -u $(USER_ID):$(GROUP_ID) node:20.12.2 make setup
 
 dev-start:
-	# docker compose up
-	export UserID=$(id -u) GroupID=$(id -g) && docker-compose up
-
+	export USER_ID=$(USER_ID) USER_ID=$(GROUP_ID) && docker compose up
 
 ci:
 	docker compose -f docker-compose.yml up --abort-on-container-exit
