@@ -3,7 +3,6 @@ WORKDIR /app
 
 COPY app/package.json package.json
 COPY app/package-lock.json package-lock.json
-# COPY app/.env.example /app/.env
 
 RUN npm ci
 
@@ -11,12 +10,6 @@ COPY app/. .
 
 EXPOSE 8080
 ENV NODE_ENV=production
-
-ENV DATABASE_NAME=postgres
-ENV DATABASE_USERNAME=postgres
-ENV DATABASE_PASSWORD=password
-ENV DATABASE_PORT=5432
-ENV DATABASE_HOST=db
 
 RUN make build
 
