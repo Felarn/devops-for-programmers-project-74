@@ -7,8 +7,8 @@
 ## Requirements
 
 - make
-- Docker version 28.1.1
-- Docker Compose version v2.35.1
+- Docker version 28.1.1 or higher
+- Docker Compose version v2.35.1 or higher
 
 # About
 
