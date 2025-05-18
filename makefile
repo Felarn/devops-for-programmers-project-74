@@ -1,8 +1,10 @@
 install:
-	docker run -it -w /root -v `pwd`/app:/root node:20.12.2 make setup
+	docker run -it -w /root -v `pwd`/app:/root -u $(id -u):$(id -g) node:20.12.2 make setup
 
 dev-start:
-	docker compose up
+	# docker compose up
+	export UserID=$(id -u) GroupID=$(id -g) && docker-compose up
+
 
 ci:
 	docker compose -f docker-compose.yml up --abort-on-container-exit
