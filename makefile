@@ -1,9 +1,6 @@
 USER_ID = $(shell id -u)
 GROUP_ID = $(shell id -g)
 
-aaaa:
-	echo $(shell id -g)
-
 install:
 	docker run -it -w /root -v `pwd`/app:/root -u $(USER_ID):$(GROUP_ID) node:20.12.2 make setup
 
