@@ -16,8 +16,7 @@ This is the first learning project from the DevOps course on Hexlet. It creates 
 
 ### Docker image
 
-If the tests are successful after a push to GitHub, the Docker image is created and pushed to Docker Hub:
-felarn/devops-for-programmers-project-74
+If the tests are successful after a push to GitHub, the Docker image <code>felarn/devops-for-programmers-project-74</code> is created and pushed to Docker Hub:
 https://hub.docker.com/repository/docker/felarn/devops-for-programmers-project-74
 
 To test image itself you can run:
